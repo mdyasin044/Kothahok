@@ -1,0 +1,11 @@
+Home page:
+
+Name, Create Room, Join Room
+
+Room:
+
+Active People: Can mute their video and audio.
+
+Video Chat: Video Mute, Audio Mute, Leave
+
+Text chat: Text Box, Send
