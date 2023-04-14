@@ -1,0 +1,29 @@
+.Room {
+    height: 753px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ActiveList {
+    height: 100%;
+    width: 25%;
+    background-color: darkslategray;
+}
+
+.VideoChat {
+    height: 100%;
+    width: 50%;
+    background-color: aliceblue;
+}
+
+.TextChat {
+    height: 100%;
+    width: 25%;
+    background-color: darkslategray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
