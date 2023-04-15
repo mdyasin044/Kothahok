@@ -8,22 +8,63 @@
 
 .ActiveList {
     height: 100%;
-    width: 25%;
+    width: 20%;
     background-color: darkslategray;
 }
 
 .VideoChat {
-    height: 100%;
-    width: 50%;
+    height: 90%;
+    width: 100%;
     background-color: aliceblue;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.VideoChatAndTaskBar {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.TaskBar {
+    height: 8%;
+    width: 80%;
+    background-color: darkslategray;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #aaaaaa;
 }
 
 .TextChat {
     height: 100%;
-    width: 25%;
+    width: 20%;
     background-color: darkslategray;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.VideoArea {
+    width: 40%;
+    margin: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.VideoSection {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+.NameSection {
+    width: 95%;
+
 }

@@ -8,50 +8,53 @@ const io = require('socket.io')(server, {
     }
 })
 
-const users = {};
-const socketToRoom = {};
+const users = {}
+const socketToRoom = {}
+const socketToName = {}
 
 io.on('connection', socket => {
     console.log('Connected to a new client - ', socket.id)
 
-    socket.on("join room", roomID => {
+    socket.on("join room", (name, roomID) => {
         if (users[roomID]) {
-            const length = users[roomID].length;
-            if (length === 20) {
-                socket.emit("room full");
-                return;
+            const length = users[roomID].length
+            if (length === 4) {
+                socket.emit("room full")
+                return
             }
-            users[roomID].push(socket.id);
+            users[roomID].push(socket.id)
         } else {
-            users[roomID] = [socket.id];
+            users[roomID] = [socket.id]
         }
 
-        socketToRoom[socket.id] = roomID;
-        const usersInThisRoom = users[roomID].filter(id => id !== socket.id);
-        console.log('all users', usersInThisRoom)
-        socket.emit("all users", usersInThisRoom);
-    });
+        socketToRoom[socket.id] = roomID
+        socketToName[socket.id] = name
+        const usersInThisRoom = users[roomID].filter(id => id !== socket.id)
+        console.log(name, ' with socketID - ', socket.id, 'is connected with room - ', roomID)
+        console.log('Others members - ', usersInThisRoom)
+        socket.emit("all users", usersInThisRoom, socketToName)
+    })
 
     socket.on("sending signal", payload => {
         console.log('user joined')
-        io.to(payload.userToSignal).emit('user joined', { signal: payload.signal, callerID: payload.callerID });
-    });
+        io.to(payload.userToSignal).emit('user joined', { signal: payload.signal, callerID: payload.callerID }, socketToName[payload.callerID])
+    })
 
     socket.on("returning signal", payload => {
         console.log('receiving returned signal')
-        io.to(payload.callerID).emit('receiving returned signal', { signal: payload.signal, id: socket.id });
-    });
+        io.to(payload.callerID).emit('receiving returned signal', { signal: payload.signal, id: socket.id })
+    })
 
     socket.on('disconnect', () => {
         console.log('Disconnected to a client - ', socket.id)
-        io.emit('DISCONNECT-A-CLIENT', socket.id)
-        const roomID = socketToRoom[socket.id];
-        let room = users[roomID];
+        socket.broadcast.emit('DISCONNECT-A-CLIENT', socket.id)
+        const roomID = socketToRoom[socket.id]
+        let room = users[roomID]
         if (room) {
-            room = room.filter(id => id !== socket.id);
-            users[roomID] = room;
+            room = room.filter(id => id !== socket.id)
+            users[roomID] = room
         }
-    });
-});
+    })
+})
 
 server.listen(5000, () => console.log("Server is running on port 5000..."))
