@@ -45,7 +45,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### Deployment
 
-Backend is deployed on render and frontend is deployed in netlify.
-You can visit the deployed site here: [site](https://kothahok.netlify.app/)
+Backend is deployed on render and frontend is deployed in netlify. \
+You can visit the deployed site here: [https://kothahok.netlify.app/](https://kothahok.netlify.app/)
 
  
