@@ -2,8 +2,8 @@ import React, { createContext, useState, useRef, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
 
-const socket = io.connect('http://localhost:5000')
-//const socket = io.connect('https://kothahok.onrender.com')
+//const socket = io.connect('http://localhost:5000')
+const socket = io.connect('https://kothahok.onrender.com')
 
 const SocketContext = createContext();
 
@@ -13,6 +13,7 @@ const ContextProvider = ({ children }) => {
     const [roomID, setRoomID] = useState('')
     const [peers, setPeers] = useState([])
     const [userStream, setUserStream] = useState()
+    const [textMessageList, setTextMessageList] = useState([])
     const socketRef = useRef()
     const peersRef = useRef([])
 
@@ -33,8 +34,10 @@ const ContextProvider = ({ children }) => {
                         })
                         peers.push({
                             userName: socketToName[userID],
+                            socketID: userID,
                             peer
                         })
+                        setTextMessageList(list => [...list, { text: `${socketToName[userID]} joined the room`, senderName: 'SYSTEM101' }])
                     })
                     setPeers(peers)
                 })
@@ -46,7 +49,8 @@ const ContextProvider = ({ children }) => {
                         peer,
                     })
     
-                    setPeers(users => [...users, { userName, peer }])
+                    setPeers(users => [...users, { userName, socketID: payload.callerID, peer }])
+                    setTextMessageList(list => [...list, { text: `${userName} just join the room`, senderName: 'SYSTEM101' }])
                 })
     
                 socketRef.current.on("receiving returned signal", payload => {
@@ -56,7 +60,7 @@ const ContextProvider = ({ children }) => {
                     }
                 })
     
-                socketRef.current.on("DISCONNECT-A-CLIENT", id => {
+                socketRef.current.on("DISCONNECT-A-CLIENT", (id, name) => {
                     const item = peersRef.current.find(p => p.peerID === id)
                     if(item) {
                         peersRef.current = peersRef.current.filter(p => p.peerID !== id)
@@ -66,7 +70,14 @@ const ContextProvider = ({ children }) => {
                         }
                     }
                     //window.location.reload()
+                    if(name) {
+                        setTextMessageList(list => [...list, { text: `${name} leave the room`, senderName: 'SYSTEM101' }])
+                    }
                 })
+            })
+
+            socketRef.current.on("RECEIVE-TEXT", (text, senderName) => {
+                setTextMessageList(list => [...list, { text, senderName }])
             })
         }
     }, [showRoom])
@@ -121,6 +132,10 @@ const ContextProvider = ({ children }) => {
         window.location.reload()
     }
 
+    function sendTextMessage(text) {
+        socketRef.current.emit('SEND-TEXT', text)
+    }
+
   return (
     <SocketContext.Provider value={{
       showRoom,
@@ -133,6 +148,8 @@ const ContextProvider = ({ children }) => {
       setPeers,
       userStream,
       exitRoom,
+      sendTextMessage,
+      textMessageList,
     }}
     >
       {children}

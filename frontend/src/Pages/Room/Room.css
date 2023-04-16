@@ -9,13 +9,45 @@
 .ActiveList {
     height: 100%;
     width: 20%;
-    background-color: darkslategray;
+    background-color: #001e2bf0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    box-shadow: -3px -3px 10px 5px #000a0c inset;
+    background-image: linear-gradient(180deg, rgb(17, 2, 58), #002533);
+}
+
+.ParticipantCount {
+    margin-top: 30px;
+    height: 10%;
+    color: hsl(256, 72%, 77%);
+}
+
+.Participant {
+    width: 80%;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.ParticipantList {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.RoomID {
+    height: 10%;
+    color: hsl(256, 72%, 77%);
+    font-size: large;
 }
 
 .VideoChat {
-    height: 90%;
+    height: 80%;
     width: 100%;
-    background-color: aliceblue;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -29,24 +61,28 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #011316;
+    color: white;
 }
 
 .TaskBar {
     height: 8%;
     width: 80%;
-    background-color: darkslategray;
-    border-radius: 10px;
-    box-shadow: 10px 10px 5px #aaaaaa;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .TextChat {
     height: 100%;
     width: 20%;
-    background-color: darkslategray;
+    background-color: #001e2bf0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-shadow: 3px 3px 10px 5px #000a0c inset;
+    background-image: linear-gradient(180deg, rgb(17, 2, 58), #002533);
 }
 
 .VideoArea {
@@ -61,10 +97,100 @@
 .VideoSection {
     width: 100%;
     border-radius: 10px;
-    box-shadow: 10px 10px 5px #aaaaaa;
+    box-shadow: 10px 10px 5px black;
 }
 
 .NameSection {
     width: 95%;
+}
 
+.TextBox {
+    width: 90%;
+    background-color: #8260df;
+    margin-bottom: 5px;
+    padding: 5px;
+    padding-left: 7px;
+    word-wrap: break-word;
+    border-radius: 18px;
+    box-shadow: 3px 3px 3px black;
+    color: whitesmoke;
+    text-shadow: 2px 2px black;
+    background-image: linear-gradient(180deg, #8260df, #1b0b49);
+}
+
+.TextBoxLabel {
+    width: 90%;
+    word-wrap: break-word;
+    color: wheat;
+    text-shadow: 2px 2px #002c3f;
+    font-size: small;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+.NotificationBox {
+    margin: 5px;
+    word-wrap: break-word;
+    color: wheat;
+    font-size: small;
+    text-shadow: 2px 2px #002c3f;
+}
+
+.TextArea {
+    width: 90%;
+    height: 80%;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    overflow-y: scroll;
+    flex-direction: column-reverse;
+    border: 1px solid #8260df;
+    padding: 1px;
+}
+
+.TextAreaInput {
+    width: 90%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.InputMessage {
+    height: 20px;
+    width: 170px;
+    background-color: #3f434a;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    padding: 15px;
+}
+
+.ExitRoom {
+    width: 200px;
+    height: 80%;
+    background-color: white;
+    background-image: linear-gradient(180deg, #8260df, #1b0b49);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 3px 3px 3px black;
+    border-radius: 18px;
+}
+
+.ExitRoom:hover {
+    background-image: linear-gradient(180deg, #1b0b49, #8260df);
+}
+
+.LOGOROOM {
+    height: 80%;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px black;
+    border: 1px solid #8260df;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+    font-family: 'Acme', sans-serif;
 }

@@ -45,9 +45,19 @@ io.on('connection', socket => {
         io.to(payload.callerID).emit('receiving returned signal', { signal: payload.signal, id: socket.id })
     })
 
+    socket.on('SEND-TEXT', text => {
+        console.log(socket.id, ' sends text - ', text)
+        const roomID = socketToRoom[socket.id]
+        const senderName = socketToName[socket.id]
+        const usersInThisRoom = users[roomID]
+        usersInThisRoom.forEach(userID => {
+            io.to(userID).emit('RECEIVE-TEXT', text, senderName)
+        })
+    })
+
     socket.on('disconnect', () => {
         console.log('Disconnected to a client - ', socket.id)
-        socket.broadcast.emit('DISCONNECT-A-CLIENT', socket.id)
+        socket.broadcast.emit('DISCONNECT-A-CLIENT', socket.id, socketToName[socket.id])
         const roomID = socketToRoom[socket.id]
         let room = users[roomID]
         if (room) {

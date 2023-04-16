@@ -2,8 +2,11 @@
     height: 753px;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #011316;
+    color: white
 }
 
 .Box {
@@ -13,5 +16,60 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: darkslategray;
+    background-color: #00384f;
+    box-shadow: 3px 3px 3px black;
+    border-radius: 8px;
+    background-image: linear-gradient(180deg, rgb(119, 90, 197), #002533);
+}
+
+.InputField {
+    height: 25px;
+    width: 60%;
+    background-color: #3f434a;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    padding: 15px;
+    margin: 15px;
+    box-shadow: 3px 3px 3px black;
+}
+
+.JoinRoom {
+    background-color: #16082a;
+    height: 25px;
+    width: 60%;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin: 15px;
+    box-shadow: 3px 3px 3px black;
+    background-image: linear-gradient(180deg, #8260df, #1b0b49);
+}
+
+.JoinRoom:hover {
+    background-color: #1e083c;
+    height: 25px;
+    width: 60%;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin: 15px;
+    box-shadow: 3px 3px 6px black;
+    background-image: linear-gradient(180deg, #1b0b49, #8260df);
+}
+
+.LOGO {
+    height: 70px;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px black;
+    border: 1px solid #8260df;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    font-family: 'Acme', sans-serif;
 }
