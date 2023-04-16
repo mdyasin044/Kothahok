@@ -1,5 +1,5 @@
 # Kothahok
-Live video and text chat
+Live video and text chat \
 Just visit [https://kothahok.netlify.app/](https://kothahok.netlify.app/)
 
 ![kothahok1](https://user-images.githubusercontent.com/47979006/232322195-e17402ea-bd71-4c05-9bf5-225a840bfd76.PNG)
