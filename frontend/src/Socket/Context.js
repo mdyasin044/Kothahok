@@ -2,8 +2,8 @@ import React, { createContext, useState, useRef, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
 
-//const socket = io.connect('http://localhost:5000')
-const socket = io.connect('https://kothahok.onrender.com')
+const socket = io.connect('http://localhost:5000')
+//const socket = io.connect('https://kothahok.onrender.com')
 
 const SocketContext = createContext();
 

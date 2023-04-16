@@ -4,7 +4,7 @@ const app = express()
 const server = http.createServer(app)
 const io = require('socket.io')(server, {
     cors: {
-        origin: ['http://localhost:3000', 'https://shiny-manatee-eb440f.netlify.app']
+        origin: ['http://localhost:3000', 'https://shiny-manatee-eb440f.netlify.app', 'https://kothahok.netlify.app/']
     }
 })
 
