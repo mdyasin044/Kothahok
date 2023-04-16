@@ -2,7 +2,7 @@ import React, { createContext, useState, useRef, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
 
-const socket = io.connect('http://localhost:5000')
+//const socket = io.connect('http://localhost:5000')
 //const socket = io.connect('https://kothahok.onrender.com')
 
 const SocketContext = createContext();
@@ -17,10 +17,11 @@ const ContextProvider = ({ children }) => {
     const socketRef = useRef()
     const peersRef = useRef([])
 
-	socketRef.current = socket
-
     useEffect(() => {
         if(showRoom) {
+            socketRef.current = io.connect('https://kothahok.onrender.com')
+            //socketRef.current = io.connect('http://localhost:5000')
+
             navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then(stream => {
                 setUserStream(stream)
                 socketRef.current.emit("join room", name, roomID)
