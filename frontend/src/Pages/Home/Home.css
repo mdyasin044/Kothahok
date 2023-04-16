@@ -73,3 +73,9 @@
     font-size: larger;
     font-family: 'Acme', sans-serif;
 }
+
+@media screen and (max-width: 1100px) {
+    .Box {
+        width: 80%;
+    }
+}

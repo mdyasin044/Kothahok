@@ -11,8 +11,14 @@ const Home = () => {
       if(name.length < 4) {
         setError('Name should have atleast 4 letters')
       }
+      else if(name.length > 15) {
+        setError('Name should not have more than 15 letters')
+      }
       else if(roomID === '') {
         setError('Room can not be empty')
+      }
+      else if(roomID.length > 15) {
+        setError('Room should not have more than 15 letters')
       }
       else {
         setError('')

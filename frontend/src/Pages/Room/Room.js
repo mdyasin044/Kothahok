@@ -1,4 +1,3 @@
-
 import ActiveList from './ActiveList';
 import VideoChat from './VideoChat';
 import TextChat from './TextChat';

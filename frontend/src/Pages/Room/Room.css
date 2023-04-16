@@ -46,7 +46,7 @@
 }
 
 .VideoChat {
-    height: 80%;
+    height: 88%;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -87,6 +87,7 @@
 
 .VideoArea {
     width: 40%;
+    height: 40%;
     margin: 7px;
     display: flex;
     flex-direction: column;
@@ -193,4 +194,35 @@
     align-items: center;
     font-size: medium;
     font-family: 'Acme', sans-serif;
+}
+
+
+@media screen and (max-width: 1100px) {
+    .Room {
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ActiveList {
+        height: 753px;
+        width: 100%;
+    }
+
+    .VideoChatAndTaskBar {
+        height: 753px;
+        width: 100%;
+    }
+
+    .TextChat {
+        height: 753px;
+        width: 100%;
+    }
+
+    .ExitRoom {
+        width: 100px;
+    }
 }
