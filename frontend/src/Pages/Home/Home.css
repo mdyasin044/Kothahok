@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     background-color: #011316;
-    color: white
+    color: white;
 }
 
 .Box {
@@ -16,7 +16,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #00384f;
     box-shadow: 3px 3px 3px black;
     border-radius: 8px;
     background-image: linear-gradient(180deg, rgb(119, 90, 197), #002533);
@@ -34,30 +33,193 @@
     box-shadow: 3px 3px 3px black;
 }
 
+.ButtonBox {
+    position: relative;
+    width: 80%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
 .JoinRoom {
-    background-color: #16082a;
-    height: 25px;
-    width: 60%;
+    position: absolute;
+    height: 50%;
+    width: 20%;
     border-radius: 8px;
     color: white;
     text-align: center;
-    padding: 15px;
-    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 3px black;
+    background-image: linear-gradient(180deg, #8260df, #1b0b49);
+    transition: 0.5s ease;
+}
+
+.JoinRoomStatic {
+    position: absolute;
+    height: 50%;
+    width: 20%;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     box-shadow: 3px 3px 3px black;
     background-image: linear-gradient(180deg, #8260df, #1b0b49);
 }
 
-.JoinRoom:hover {
-    background-color: #1e083c;
-    height: 25px;
-    width: 60%;
-    border-radius: 8px;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin: 15px;
-    box-shadow: 3px 3px 6px black;
-    background-image: linear-gradient(180deg, #1b0b49, #8260df);
+.hover-point {
+    position: absolute;
+    z-index: 2;
+    width: calc(100% / 3);
+    height: calc(100% / 3);
+    /* background-color: #002533;
+    opacity: 0.3; */
+}
+
+.hover-point:nth-child(1) {
+    top: 0;
+    left: 0;
+    /* background-color: rosybrown;
+    opacity: 0.3; */
+}
+
+.hover-point:nth-child(2) {
+    top: 0;
+    left: calc(100% / 3);
+    /* background-color: green;
+    opacity: 0.3; */
+}
+
+.hover-point:nth-child(3) {
+    top: 0;
+    right: 0;
+    /* background-color: red;
+    opacity: 0.3; */
+}
+
+.hover-point:nth-child(4) {
+    top: calc(100% / 3);
+    left: 0;
+    /* background-color: yellowgreen;
+    opacity: 0.3; */
+}
+
+.hover-point:nth-child(5) {
+    top: calc(100% / 3);
+    right: 0;
+    /* background-color: yellow;
+    opacity: 0.3; */
+}
+
+.hover-point:nth-child(6) {
+    bottom: 0;
+    left: 0;
+    /* background-color: orange;
+    opacity: 0.3; */
+}
+
+.hover-point:nth-child(7) {
+    bottom: 0;
+    left: calc(100% / 3);
+    /* background-color: burlywood;
+    opacity: 0.3; */
+}
+
+.hover-point:nth-child(8) {
+    bottom: 0;
+    right: 0;
+    /* background-color: grey;
+    opacity: 0.3; */
+}
+
+.hover-point:nth-child(9) {
+    top: calc(100% / 3);
+    left: calc(100% / 3);
+}
+
+.hover-point:nth-child(1):hover~.JoinRoom {
+    box-shadow: 15px 15px 50px rgba(0, 0, 0, .5);
+    transform-origin: right top;
+    transform: perspective(1000px) rotateX(10deg) rotateY(-10deg) rotateZ(2deg) translateX(200px) translateZ(-200px);
+}
+
+.hover-point:nth-child(2):hover~.JoinRoom {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, .5);
+    transform-origin: center top;
+    transform: perspective(1000px) rotateX(10deg) translateZ(-200px);
+}
+
+.hover-point:nth-child(3):hover~.JoinRoom {
+    box-shadow: -15px 15px 50px rgba(0, 0, 0, .5);
+    transform-origin: left top;
+    transform: perspective(1000px) rotateX(10deg) rotateY(10deg) rotateZ(-2deg) translateX(-200px) translateZ(-200px);
+}
+
+.hover-point:nth-child(4):hover~.JoinRoom {
+    box-shadow: 15px 5px 50px rgba(0, 0, 0, .5);
+    transform-origin: left center;
+    transform: perspective(1000px) rotateY(-10deg) translateX(200px);
+}
+
+.hover-point:nth-child(5):hover~.JoinRoom {
+    box-shadow: -15px 5px 50px rgba(0, 0, 0, .5);
+    transform-origin: right center;
+    transform: perspective(1000px) rotateY(10deg) translateX(-200px);
+}
+
+.hover-point:nth-child(6):hover~.JoinRoom {
+    box-shadow: 15px -15px 50px rgba(0, 0, 0, .5);
+    transform-origin: right bottom;
+    transform: perspective(1000px) rotateX(-10deg) rotateY(-10deg) rotateZ(-2deg) translateX(200px) translateZ(-200px);
+}
+
+.hover-point:nth-child(7):hover~.JoinRoom {
+    box-shadow: 0 -15px 50px rgba(0, 0, 0, .5);
+    transform-origin: center bottom;
+    transform: perspective(1000px) rotateX(-10deg) translateZ(-200px);
+}
+
+.hover-point:nth-child(8):hover~.JoinRoom {
+    box-shadow: -15px -15px 50px rgba(0, 0, 0, .5);
+    transform-origin: left bottom;
+    transform: perspective(1000px) rotateX(-10deg) rotateY(10deg) rotateZ(2deg) translateX(-200px) translateZ(-200px);
+}
+
+.hover-point:nth-child(9):hover~.JoinRoom {
+    box-shadow: 15px 5px 50px rgba(0, 0, 0, .5);
+    transform-origin: left bottom;
+    transform: perspective(1000px) rotateX(-10deg) rotateY(10deg) rotateZ(2deg) translateX(200px);
 }
 
 .LOGO {
@@ -76,6 +238,14 @@
 
 @media screen and (max-width: 1100px) {
     .Box {
+        width: 80%;
+    }
+
+    .JoinRoom {
+        visibility: hidden;
+    }
+
+    .JoinRoomStatic {
         width: 80%;
     }
 }
